@@ -77,8 +77,7 @@ MMoE的总体网络架构如下：
 
 通过官方网站安装MindSpore后，您可以按照如下步骤进行训练和评估：
 
-
-
+```
 # 单机训练(GPU)
 Usage: bash run_standalone_train_gpu.sh [DATA_PATH] [DEVICE_ID] [CKPT_PATH] [CONFIG_FILE]
 [DATA_PATH]是数据集的路径(mindrecord文件所在的目录)。
@@ -162,7 +161,7 @@ Usage: bash run_standalone_eval_gpu.sh [DATA_PATH] [CKPT_PATH] [DEVICE_ID] [CONF
 
 
 
-
+```
 # 单机训练(GPU)
 Usage: bash run_standalone_train_gpu.sh [DATA_PATH] [DEVICE_ID] [CKPT_PATH] [CONFIG_FILE]
 [DATA_PATH]是数据集的路径(mindrecord文件所在的目录)。
