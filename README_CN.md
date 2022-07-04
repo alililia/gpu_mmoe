@@ -78,16 +78,6 @@ MMoE的总体网络架构如下：
 通过官方网站安装MindSpore后，您可以按照如下步骤进行训练和评估：
 
 
-```Shell
-[RANK_TABLE_FILE]是多卡的具体信息。
-[DATA_PATH]是数据集的路径。
-[CKPT_PATH]是要将ckpt保存的位置。
-[CONFIG_FILE]是模型及运行的整体参数。
-
-[DATA_PATH]是数据集的路径。
-[CKPT_PATH]是要将ckpt保存的位置。
-[DEVICE_ID]为执行train.py的ID号。
-[CONFIG_FILE]是模型及运行的整体参数。
 
 # 单机训练(GPU)
 Usage: bash run_standalone_train_gpu.sh [DATA_PATH] [DEVICE_ID] [CKPT_PATH] [CONFIG_FILE]
@@ -171,16 +161,7 @@ Usage: bash run_standalone_eval_gpu.sh [DATA_PATH] [CKPT_PATH] [DEVICE_ID] [CONF
 ## 用法
 
 
-```Shell
-[RANK_TABLE_FILE]是多卡的具体信息。
-[DATA_PATH]是数据集的路径。
-[CKPT_PATH]是要将ckpt保存的位置。
-[CONFIG_FILE]是模型及运行的整体参数。
 
-[DATA_PATH]是数据集的路径。
-[CKPT_PATH]是要将ckpt保存的位置。
-[DEVICE_ID]为执行train.py的ID号。
-[CONFIG_FILE]是模型及运行的整体参数。
 
 # 单机训练(GPU)
 Usage: bash run_standalone_train_gpu.sh [DATA_PATH] [DEVICE_ID] [CKPT_PATH] [CONFIG_FILE]
@@ -310,23 +291,24 @@ bash run_infer_310.sh [MINDIR_PATH] [DATA_PATH] [NEED_PREPROCESS] [DEVICE_ID]
 
 #### census-income上的MMoE
 
-|---|---|---|
-| 模型版本  | MMoE  |MMoE|
-| 上传日期  |2021-11-12 ;  |2022-2-19|
-| MindSpore版本  | 1.3.0 |1.6.0|
-| 数据集  | census-income |census-income|
-| 训练参数  | epoch=100, batch_size = 32  |epoch=100, batch_size = 128|
-| 优化器  | Adam  |Adam|
-| 损失函数  | BCELoss |BCELoss|
-| 输出  | 概率 |概率|
-|  损失 | 0.20949207 |0.21848808228969574|
-|速度|0.671毫秒/步 |11.399毫秒/步|
-|总时长   |  17分钟 |32分钟|
-|参数   | 23.55KB |23.55KB|
-|精度指标   | best income_auc:0.9895    best marital_auc:0.9837 |best income_auc:0.9892    best marital_auc:0.9826|
-|  微调检查点 | 2.66MB（.ckpt文件）  |893.8KB（.ckpt文件）|
-| 脚本  | [链接](https://gitee.com/mindspore/models/tree/master/research/recommend/mmoe)  |[链接](https://gitee.com/mindspore/models/tree/master/research/recommend/mmoe)|
-
+| 参数 |  V100 GPU |
+|---|---|
+| 模型版本  | MMoE|
+| 资源  |  V100 GPU；CPU：8核；内存：64G|
+| 上传日期  |2022-2-19|
+| MindSpore版本  | 1.6.0|
+| 数据集  | census-income|
+| 训练参数  | epoch=100, batch_size = 128|
+| 优化器  |Adam|
+| 损失函数  | BCELoss|
+| 输出  | 概率|
+|  损失 | 0.21848808228969574|
+|速度|11.399毫秒/步|
+|总时长   |  32分钟|
+|参数   | 23.55KB|
+|精度指标   | best income_auc:0.9892    best marital_auc:0.9826|
+|  微调检查点 |893.8KB（.ckpt文件）|
+| 脚本  | [链接](https://gitee.com/mindspore/models/tree/master/research/recommend/mmoe)|
 # 随机情况说明
 
 train.py中使用随机种子
